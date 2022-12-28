@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\Site1Controller;
+use App\Http\Controllers\Site2Controller;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\TestController;
 
@@ -108,6 +110,11 @@ use App\Http\Controllers\TestController;
 //     return view('welcome');
 // });
 
+// PascalCase
+// camelCase
+// snake_case
+// kebab-case
+
 // Route::get('/', [TestController::class, 'index']);
 // Route::get('/', 'TestController@index');
 
@@ -116,3 +123,7 @@ Route::get('/contact', [TestController::class, 'contact'])->name('test.contact')
 Route::get('/team', [TestController::class, 'team'])->name('test.team');
 Route::get('/services/{id}', [TestController::class, 'services'])->name('test.services');
 Route::get('/about', [TestController::class, 'about'])->name('test.about');
+
+Route::get('site1/{name?}', [Site1Controller::class, 'index'])->name('site1.index');
+
+Route::get('site2/new', [Site2Controller::class, 'index'])->name('site2.index');
