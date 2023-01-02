@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\FormsController;
 use App\Http\Controllers\ResumeController;
 use App\Http\Controllers\Site1Controller;
 use App\Http\Controllers\Site2Controller;
@@ -146,3 +147,12 @@ Route::prefix('resume')->name('resume.')->group(function() {
     Route::get('/interests', [ResumeController::class, 'interests'])->name('interests');
     Route::get('/awards', [ResumeController::class, 'awards'])->name('awards');
 });
+
+Route::get('form1', [FormsController::class, 'form1'])->name('forms.form1');
+Route::post('form1', [FormsController::class, 'form1_data'])->name('forms.form1_data');
+
+Route::get('form2', [FormsController::class, 'form2'])->name('forms.form2');
+Route::post('form2', [FormsController::class, 'form2_data'])->name('forms.form2_data');
+
+Route::get('form3', [FormsController::class, 'form3'])->name('forms.form3');
+Route::post('form3', [FormsController::class, 'form3_data'])->name('forms.form3_data');
