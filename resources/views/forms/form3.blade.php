@@ -15,15 +15,7 @@
         @dump($errors->any())
         @dump($errors->all()) --}}
 
-        {{-- @if ($errors->any())
-            <div class="alert alert-danger">
-                <ul>
-                    @foreach ($errors->all() as $error)
-                        <li>{{ $error }}</li>
-                    @endforeach
-                </ul>
-            </div>
-        @endif --}}
+        @include('forms.errors')
 
         <form action="{{ route('forms.form3_data') }}" method="POST">
             @csrf

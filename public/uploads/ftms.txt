@@ -1,0 +1,106 @@
+Users
+- student
+- companymanager
+- companysupervisor
+- doctor
+- super-admin
+
+- List of companies
+- Student apply to company
+- Company approve the request
+- Student recive notification
+- Student Start Trainig
+- Student Send Email to Supervisor
+- Supervisor Assign Task to Student
+- Company Evaluate the Student
+- Student Evaluate the training process
+- Company Generate a certificate to students
+- Student can purchase a paid session from expert
+
+------------------------------------
+users
+- id
+- name
+- email
+- password
+- phone
+- username
+- image
+- status
+- type
+
+companies
+- id
+- name
+- image
+- content
+- location => Google Map
+
+courses
+- id
+- company_id
+- supervisor_id
+- name
+- image
+- content
+- start_data
+- end_date
+
+applications
+- id
+- company_id
+- user_id
+- course_id
+- name
+- status
+
+tasks
+- id
+- user_id
+- manager_id
+- content
+- deadline
+- status
+
+evaluations
+- id
+- name
+- type => company, student
+
+questions
+- id
+- question
+- a1
+- a2
+- a3
+- a4
+- a5
+- evaluation_id
+
+ratings
+- id
+- user_id
+- evualtion_id
+- data
+
+experts
+- id
+- name
+- image
+- company_id
+- hour_price
+
+avialble_times
+- id
+- day
+- hour_from
+- hour_to
+- status
+
+appoinments
+- id
+- user_id
+- expert_id
+- avialble_time_id
+- payment_status
+- price

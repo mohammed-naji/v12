@@ -15,21 +15,24 @@
     <div class="container my-5">
         <h1>Bio Form</h1>
 
+        @include('forms.errors')
+
+        {{-- @dump(old('name')) --}}
         <form action="{{ route('forms.form2_data') }}" method="POST">
             @csrf
             <div class="mb-3">
                 <label>Name</label>
-                <input type="text" placeholder="Name" class="form-control" name="name">
+                <input type="text" placeholder="Name" class="form-control" name="name" value="{{ old('name') }}" >
             </div>
 
             <div class="mb-3">
                 <label>Email</label>
-                <input type="email" placeholder="Email" class="form-control" name="email">
+                <input type="email" placeholder="Email" class="form-control" name="email" value="{{ old('email') }}">
             </div>
 
             <div class="mb-3">
                 <label>Phone</label>
-                <input type="text" placeholder="Phone" class="form-control" name="phone">
+                <input type="text" placeholder="Phone" class="form-control" name="phone" value="{{ old('phone') }}">
             </div>
 
             <div class="mb-3">
@@ -38,16 +41,18 @@
             </div>
 
             <div class="mb-3">
+                {{-- {{ old('gender') }} --}}
                 <label>Gender</label> <br>
-                <label><input type="radio" name="gender" value="Male"> Male</label> <br>
-                <label><input type="radio" name="gender" value="Female"> Female</label>
+                <label><input {{ old('gender') == 'Male' ? 'checked' : '' }} type="radio" name="gender" value="Male"> Male</label> <br>
+                <label><input {{ old('gender') == 'Female' ? 'checked' : '' }} type="radio" name="gender" value="Female"> Female</label>
             </div>
 
+            {{-- @dump(old('interestings')) --}}
             <div class="mb-3">
                 <label>Interestings</label> <br>
-                <label><input type="checkbox" name="interestings[]" value="Football"> Football</label> <br>
-                <label><input type="checkbox" name="interestings[]" value="Basketball"> Basketball</label> <br>
-                <label><input type="checkbox" name="interestings[]" value="Vollyball"> Vollyball</label>
+                <label><input {{ is_array(old('interestings')) && in_array('Football', old('interestings')) ? 'checked' : '' }} type="checkbox" name="interestings[]" value="Football"> Football</label> <br>
+                <label><input {{ is_array(old('interestings')) && in_array('Basketball', old('interestings')) ? 'checked' : '' }} type="checkbox" name="interestings[]" value="Basketball"> Basketball</label> <br>
+                <label><input {{ is_array(old('interestings')) && in_array('Vollyball', old('interestings')) ? 'checked' : '' }} type="checkbox" name="interestings[]" value="Vollyball"> Vollyball</label>
             </div>
 
             <div class="mb-3">
@@ -311,7 +316,7 @@
 
             <div class="mb-3">
                 <label>Bio</label>
-                <textarea name="bio" placeholder="Phone" class="form-control" name="phone" rows="5"></textarea>
+                <textarea name="bio" placeholder="Phone" class="form-control" name="phone" rows="5">{{ old('bio') }}</textarea>
             </div>
 
             <button class="btn btn-success px-5">Register</button>
@@ -321,5 +326,16 @@
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
+    <script>
+
+        // var country = document.getElementById('country');
+        let country = document.getElementById('country');
+        // const country = document.getElementById('country');
+
+        let old = '{{ old("country") }}';
+        if(old != 'select country' && old != '') {
+            country.value = '{{ old("country") }}';
+        }
+    </script>
   </body>
 </html>
