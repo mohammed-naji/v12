@@ -122,7 +122,7 @@ use App\Http\Controllers\TestController;
 // Route::get('/', 'TestController@index');
 
 Route::get('/', [TestController::class, 'index'])->name('test.index');
-Route::get('/contact', [TestController::class, 'contact'])->name('test.contact');
+// Route::get('/contact', [TestController::class, 'contact'])->name('test.contact');
 Route::get('/team', [TestController::class, 'team'])->name('test.team');
 Route::get('/services/{id}', [TestController::class, 'services'])->name('test.services');
 Route::get('/about', [TestController::class, 'about'])->name('test.about');
@@ -159,3 +159,9 @@ Route::post('form3', [FormsController::class, 'form3_data'])->name('forms.form3_
 
 Route::get('form4', [FormsController::class, 'form4'])->name('forms.form4');
 Route::post('form4', [FormsController::class, 'form4_data'])->name('forms.form4_data');
+
+Route::get('form5', [FormsController::class, 'form5'])->name('forms.form5');
+Route::post('form5', [FormsController::class, 'form5_data'])->name('forms.form5_data');
+
+Route::get('contact', [FormsController::class, 'contact'])->name('forms.contact');
+Route::post('contact', [FormsController::class, 'contact_data'])->name('forms.contact_data');
