@@ -1,0 +1,51 @@
+users
+id | name | email | password | phone
+1 | Mohammed | moh@gmail.com | 123 | 987654321
+2 | Mohammed | moh@gmail.com | 123 | 987654321
+
+CRUD Application
+C -> Create => INSERT
+R -> Read => SELECT
+U -> Update => UPDATE
+D -> Delete => DELETE
+
+C -> Create => INSERT 
+** SQL
+INSERT INTO table_name (cols) VALUES (vals)
+INSERT INTO users (name, email, password, phone) VALUES
+('Ali', 'ali@gmail.com', '123', '52145')
+----------
+** Laravel 
+User::create(['name' => 'ee', 'email' => 'ee@ee.ff'])
+
+
+R -> Read => SELECT
+** SQL
+SELECT * FROM table_name
+SELECT * FROM users
+SELECT * FROM users WHERE id = 3
+----------
+** Laravel 
+User::all()
+User::find(3)
+
+
+U -> Update => UPDATE
+** SQL
+UPDATE table_name SET col=new val, col=new val WHERE cond
+UPDATE users SET name='Lama' WHERE id = 2
+----------
+** Laravel 
+$user->update(['name' => 'new'])
+
+
+D -> Delete => DELETE 
+** SQL
+DELETE FROM table_name WHERE cond
+DELETE FROM users WHERE id = 1
+----------
+** Laravel 
+User::destroy(1)
+
+$conn = mysqli_connect('localhost', 'root', '', 'v12')
+
