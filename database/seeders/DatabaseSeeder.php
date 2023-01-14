@@ -18,7 +18,7 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        // Post::factory(10000)->create();
+        Post::factory(1000)->create();
 
         // User::create([
         //     'name' => 'Mohammed',
@@ -26,6 +26,6 @@ class DatabaseSeeder extends Seeder
         //     'password' => bcrypt(123)
         // ]);
 
-        Tag::factory(100)->create();
+        // Tag::factory(100)->create();
     }
 }

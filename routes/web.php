@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\FormsController;
+use App\Http\Controllers\PostController;
 use App\Http\Controllers\ResumeController;
 use App\Http\Controllers\Site1Controller;
 use App\Http\Controllers\Site2Controller;
@@ -165,3 +166,9 @@ Route::post('form5', [FormsController::class, 'form5_data'])->name('forms.form5_
 
 Route::get('contact', [FormsController::class, 'contact'])->name('forms.contact');
 Route::post('contact', [FormsController::class, 'contact_data'])->name('forms.contact_data');
+
+
+
+
+// Posts CRUD Application
+Route::get('posts', [PostController::class, 'index'])->name('posts.index');
