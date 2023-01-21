@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\FormsController;
 use App\Http\Controllers\PostController;
+use App\Http\Controllers\RelationController;
 use App\Http\Controllers\ResumeController;
 use App\Http\Controllers\Site1Controller;
 use App\Http\Controllers\Site2Controller;
@@ -171,4 +172,23 @@ Route::post('contact', [FormsController::class, 'contact_data'])->name('forms.co
 
 
 // Posts CRUD Application
+// Soft Delete Routes
+Route::get('posts/trash', [PostController::class, 'trash'])->name('posts.trash');
+Route::get('posts/{id}/restore', [PostController::class, 'restore'])->name('posts.restore');
+Route::get('posts/{id}/forcedelete', [PostController::class, 'forcedelete'])->name('posts.forcedelete');
+
+
 Route::get('posts', [PostController::class, 'index'])->name('posts.index');
+
+
+Route::get('posts/create', [PostController::class, 'create'])->name('posts.create');
+Route::post('posts/store', [PostController::class, 'store'])->name('posts.store');
+
+Route::delete('posts/{id}', [PostController::class, 'destroy'])->name('posts.destroy');
+
+Route::get('posts/{id}/edit', [PostController::class, 'edit'])->name('posts.edit');
+Route::put('posts/{id}/update', [PostController::class, 'update'])->name('posts.update');
+// dd(now('+6 months'));
+// Relation Routes
+Route::get('one-to-one', [RelationController::class, 'one_to_one']);
+Route::get('users', [RelationController::class, 'users']);
