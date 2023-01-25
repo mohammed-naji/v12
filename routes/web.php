@@ -192,3 +192,7 @@ Route::put('posts/{id}/update', [PostController::class, 'update'])->name('posts.
 // Relation Routes
 Route::get('one-to-one', [RelationController::class, 'one_to_one']);
 Route::get('users', [RelationController::class, 'users']);
+
+Route::get('one-to-many', [RelationController::class, 'one_to_many']);
+Route::get('post/{id}', [RelationController::class, 'post']);
+Route::post('add-comment', [RelationController::class, 'add_comment'])->name('post.add_comment');
