@@ -196,3 +196,6 @@ Route::get('users', [RelationController::class, 'users']);
 Route::get('one-to-many', [RelationController::class, 'one_to_many']);
 Route::get('post/{id}', [RelationController::class, 'post']);
 Route::post('add-comment', [RelationController::class, 'add_comment'])->name('post.add_comment');
+
+Route::get('register-subjects', [RelationController::class, 'register_subjects']);
+Route::post('register-subjects', [RelationController::class, 'register_subjects_data'])->name('register_subjects_data');
